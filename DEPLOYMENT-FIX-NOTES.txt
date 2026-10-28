@@ -1,0 +1,14 @@
+Fair Power Age deployment patch
+
+Changes applied:
+- Added https://fairpowerage.vercel.app to the backend CORS allowlist by default.
+- Normalized configured CLIENT_ORIGIN values.
+- Uses /tmp for demo JSON state on Vercel to avoid writing into the read-only deployment filesystem.
+- Health endpoint identifies ephemeral demo storage.
+- Replaced frontend EventSource connection with 15-second API polling, avoiding unsupported long-lived SSE on Vercel serverless.
+- Frontend production fallback now points to https://fair-power-age.vercel.app when VITE_API_BASE_URL is not set.
+
+IMPORTANT LIMITATIONS:
+- /tmp is ephemeral and not shared across serverless instances. Admin sessions are in-memory and may not persist between invocations. This is a demo-level mitigation, not a production-ready persistence solution.
+- For reliable admin login, payments, records, and live sync, configure a persistent database and shared session/token strategy; use a hosted realtime service or polling for live updates.
+- Set CLIENT_ORIGIN=https://fairpowerage.vercel.app on the backend deployment and VITE_API_BASE_URL=https://fair-power-age.vercel.app on the frontend deployment, then redeploy both.
