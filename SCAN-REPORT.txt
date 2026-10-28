@@ -1,0 +1,11 @@
+Fair Power Age Platform - Scan Report
+
+The uploaded project archive was scanned for Git merge conflict markers:
+<<<<<<<
+=======
+>>>>>>>
+
+No conflict markers were found in the scanned source/configuration files.
+client/src/main.jsx is present and has a clean API_BASE declaration.
+Keep the existing project folder structure when extracting this archive.
+Do not extract over your project until you have made a backup.
